@@ -23,6 +23,12 @@ class Movie extends Media {
   summary() {
     return `Title: ${this.title}, Director: ${this.director}, Year: ${this.year}, Genre: ${this.genre}, Rating: ${this.rating}`;
   }
+
+  
+  static calculateAverageRating(movies) {
+    const totalRating = movies.reduce((sum, movie) => sum + movie.rating, 0);
+    return totalRating / movies.length;
+  }
 }
 // don't change below
 module.exports = Movie;

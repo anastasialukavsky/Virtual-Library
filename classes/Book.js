@@ -2,7 +2,7 @@
 const Media = require('./Media')
 // create your Book class:
 class Book extends Media {
-  constructor(title, year, genre,author, numPages, rating) {
+  constructor(title, year, genre, author, numPages, rating) {
     super(title, year, genre);
     this.author = author;
     this.numPages = numPages;
@@ -20,6 +20,11 @@ class Book extends Media {
     return books.reduce((prevBook, currentBook) => {
       return prevBook.rating > currentBook.rating ? prevBook : currentBook;
     });
+  }
+
+  static calculateAverageRating(books) {
+    const totalRating = books.reduce((sum, book) => sum + book.rating, 0);
+    return totalRating / books.length;
   }
 }
 
